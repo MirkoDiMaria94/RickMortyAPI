@@ -1,13 +1,24 @@
 import { createReducer } from "@reduxjs/toolkit";
+import { STATUS_CODES } from "http";
+import { CharacterType } from "../../models/CharacterType";
 import { add, remove, clear } from "./favourites.action";
 
-export const favouritesReducer = createReducer([] as number[], (builder) =>
+type InitialState = {
+  favoritesList: CharacterType[];
+};
+
+const InitialState: InitialState = {
+  favoritesList: [],
+};
+
+export const favouritesReducer = createReducer(InitialState, (builder) => {
   builder
-    .addCase(add, (state, action) =>
-      state.includes(action.payload) ? state : [...state, action.payload]
-    )
-    .addCase(remove, (state, action) =>
-      state.filter((item) => item !== action.payload)
-    )
-    .addCase(clear, () => [] as number[])
-);
+    .addCase(add, (state, action) => {
+      state.favoritesList.push(action.payload);
+    })
+    .addCase(remove, (state, action) => {
+      state.favoritesList = state.favoritesList.filter(
+        (character) => character.id !== action.payload
+      );
+    });
+});

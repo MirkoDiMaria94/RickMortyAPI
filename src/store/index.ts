@@ -2,12 +2,12 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { charactersReducer } from "./characters/charactersReducers";
 import { favouritesReducer } from "./favourites/favourites.reducer";
 
-
 export const store = configureStore({
   //reducer: rootReducer,
-  reducer:{
-    characters:charactersReducer
-  }
+  reducer: {
+    characters: charactersReducer,
+    favorites: favouritesReducer,
+  },
 });
 
 export type RootState = ReturnType<typeof store.getState>;
