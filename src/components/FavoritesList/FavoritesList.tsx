@@ -13,12 +13,16 @@ const FavoritesList = () => {
     dispatch(remove(character.id));
   };
   return (
-    <div className="container">
+
+    
+
+    <div  className="container">
+      <h1>FAVOURITE LIST</h1>
       {listFavorites &&
         listFavorites.map((character) => (
           <CardCustom character={character} handler={handlerRemove} />
         ))}
-    </div>
+        </div>
   );
 };
 

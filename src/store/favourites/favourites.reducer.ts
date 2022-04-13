@@ -1,5 +1,4 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { STATUS_CODES } from "http";
 import { CharacterType } from "../../models/CharacterType";
 import { add, remove, clear } from "./favourites.action";
 

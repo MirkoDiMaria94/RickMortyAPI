@@ -15,7 +15,7 @@ type PropsTypes = {
 
 const CardCustom: React.FC<PropsTypes> = ({ character, handler }) => {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card  sx={{ maxWidth: 200 }}>
       <CardActionArea>
         <CardMedia
           component="img"
